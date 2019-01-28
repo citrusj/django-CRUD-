@@ -1,0 +1,7 @@
+<h1>{{post.title}}</h1>
+<p>{{post.text}}</p>
+
+<a href="{% url 'post_edit' post_id=post.pk %}">수정</a>
+<a href="{% url 'post_delete' post_id=post.pk %}">삭제</a>
+<br><br>
+<a href="{% url 'post_list'%}">목록으로</a>
