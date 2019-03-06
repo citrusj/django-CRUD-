@@ -4,6 +4,10 @@ from django.utils import timezone
 from . forms import PostForm
 from django.shortcuts import redirect
 
+#
+from django.http import HttpResponseRedirect
+
+
 # Create your views here.
 def post_list(request):
     posts = Post.objects.all()
@@ -15,7 +19,7 @@ def post_detail(request, post_id):
     
 def post_new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit = False)
             post.author = request.user

@@ -1,6 +1,10 @@
 <h1>{{post.title}}</h1>
+<i>category: {{post.category}}</i>
 <p>{{post.text}}</p>
 
+<!--{% if post.file %}-->
+<img src="{{post.file.url}}" />
+<!--{% endif %}<br>-->
 <a href="{% url 'post_edit' post_id=post.pk %}">수정</a>
 <a href="{% url 'post_delete' post_id=post.pk %}">삭제</a>
 <br><br>

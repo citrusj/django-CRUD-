@@ -10,13 +10,18 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User') 
     title = models.CharField(max_length=200) 
     text = models.TextField() 
+    category = models.CharField(max_length=200)
     created_date = models.DateTimeField(default = timezone.now) 
     published_date = models.DateTimeField(blank=True, null=True)
+    
+    
+    file = models.FileField(null=True)
+    filetwo = models.ImageField(blank=True)
     
     def publish(self):
         self.published_date = timezone.now()
         self.save()
         
-    def __str__(self):
+    def __unicode__(self):
         return self.title
         
